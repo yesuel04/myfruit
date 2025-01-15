@@ -1,4 +1,4 @@
-package com.myfruit.pms.gto;
+package com.myfruit.pms.dto;
 
 public class ItemDto {
     private Integer id;

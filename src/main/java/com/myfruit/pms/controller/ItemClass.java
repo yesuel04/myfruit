@@ -1,6 +1,6 @@
 package com.myfruit.pms.controller;
 
-import com.myfruit.pms.gto.ItemDto;
+import com.myfruit.pms.dto.ItemDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,8 +14,9 @@ public class ItemClass {
     }
 
     @PostMapping
+    @ResponseBody
     // item = "애플"
-    public void createItem(@ModelAttribute ItemDto itemDto){
+    public void createItem(@RequestBody ItemDto itemDto){
         System.out.println(itemDto.getItem());
     }
 }
