@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.myfruit.pms.mapper.ItemMapper">
-    <insert id="insertMapper" parameterType="com.myfruit.pms.dto.ItemDto">
+    <insert id="insertItem" parameterType="com.myfruit.pms.dto.ItemDto"
+            useGeneratedKeys="true" keyProperty="id">
+<!--        방금 auto_increment로 생성된 PK의 값을 바로 사용하고 싶을 때 사용함.-->
+<!--        useGeneratedKeys 와 keyProperty 무조건 함께 사용.-->
+<!--        useGeneratedKeys 는 키를 사용할 것인지 여부 (디폴트 설정은 false임).-->
+<!--        keyProperty 는 그 키 값을 가져 올 컬럼명.-->
         INSERT INTO items (NAME) VALUES (#{item});
     </insert>
+
+    <select id="getItemById" resultType="com.myfruit.pms.dto.ItemDto">
+        select id, name as item from items where id = #{id};
+    </select>
+
+    <select id="getItemList" resultType="com.myfruit.pms.dto.ItemDto">
+        SELECT id, NAME AS item from items ORDER BY id LIMIT 3;
+    </select>
+
+    <update id="updateItem" parameterType="com.myfruit.pms.dto.ItemDto">
+        UPDATE items SET NAME = #{item} WHERE id = #{id};
+    </update>
+
+    <delete id="deleteItem">
+        DELETE FROM items WHERE id = #{id};
+    </delete>
 </mapper>
