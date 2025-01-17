@@ -14,8 +14,8 @@
   </tr>
 <!--  반복 구간 시작-->
   <tr th:each="items : ${items}">
-    <td th:text="${item.id}"></td>
-    <td th:text="${item.item}"></td>
+    <td th:text="${items.id}"></td>
+    <td th:text="${items.item}"></td>
   </tr>
 <!--  반복 구간 끝-->
 </table>

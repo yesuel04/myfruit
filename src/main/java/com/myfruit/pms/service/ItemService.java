@@ -25,7 +25,7 @@ public class ItemService {
 //        item.orElseThrow();
 //        return item;
         return itemMapper.getItemById(id).orElseThrow(
-                () -> new IllegalArgumentException("파일을 찾을 수 없습니다.")
+                () -> new IllegalStateException("파일을 찾을 수 없습니다.")
         );
     }
 

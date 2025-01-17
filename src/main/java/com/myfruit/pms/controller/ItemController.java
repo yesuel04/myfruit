@@ -34,7 +34,7 @@ public class ItemController {
     }
 
     @GetMapping("/{id}")
-    @ResponseBody
+//    @ResponseBody
     public String getItem(@PathVariable("id") int id, Model model){
         try{
             ItemDto itemDto = itemService.getItem(id);
