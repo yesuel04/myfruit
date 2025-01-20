@@ -15,7 +15,7 @@
     </select>
 
     <select id="getItemList" resultType="com.myfruit.pms.dto.ItemDto">
-        SELECT id, NAME AS item from items ORDER BY id LIMIT 3;
+        SELECT id, NAME AS item from items ORDER BY id LIMIT 5;
     </select>
 
     <update id="updateItem" parameterType="com.myfruit.pms.dto.ItemDto">
