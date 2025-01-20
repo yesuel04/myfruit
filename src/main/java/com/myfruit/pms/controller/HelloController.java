@@ -10,4 +10,10 @@ public class HelloController {
     public String hello(){
         return "/common/hello";
     }
+
+    @GetMapping("/")
+
+    public String home(){
+        return "/common/home";
+    }
 }

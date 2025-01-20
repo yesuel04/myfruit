@@ -1,24 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+                xmlns:layout="http:/www.ultraq.net.nz/thymeleaf/layout"
+                layout:decorate="~{layout/base}">
 <head>
-    <meta charset="UTF-8">
-    <title>list</title>
+    <title>목록보기</title>
 </head>
 <body>
 
-<h2>상품목록</h2>
-<table>
-  <tr>
-    <th>아이디</th>
-    <th>상품명</th>
-  </tr>
-<!--  반복 구간 시작-->
-  <tr th:each="items : ${items}">
-    <td th:text="${items.id}"></td>
-    <td th:text="${items.item}"></td>
-  </tr>
-<!--  반복 구간 끝-->
-</table>
+<main layout:fragment="content">
+
+    <h2>상품목록</h2>
+    <table>
+      <tr>
+        <th>아이디</th>
+        <th>상품명</th>
+      </tr>
+    <!--  반복 구간 시작-->
+      <tr th:each="items : ${items}">
+        <td th:text="${items.id}"></td>
+        <td><a th:href="@{/items/{id}(id=${item.id})}" th:text="${item.item}"></a></td>
+      </tr>
+    <!--  반복 구간 끝-->
+    </table>
+
+</main>
 
 </body>
 </html>
