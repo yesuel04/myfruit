@@ -3,7 +3,7 @@
                 xmlns:layout="http:/www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
-    <title layout:title-pattern="${CONTENT_TITLE | $LAYOUT_TITLE">과일가게</title>
+    <title layout:title-pattern="$CONTENT_TITLE | $LAYOUT_TITLE">과일가게</title>
     <!--공통 스타일시트-->
   <link rel="stylesheet" th:href="@{/css/common.css}">
     <!--페이지별 추가 스타일시트-->
@@ -25,7 +25,7 @@
     </footer>
 
     <!--공통 스크립트-->
-    <script th:src="@{static/js/common}"></script>
+    <script th:src="@{/js/common}"></script>
     <!--페이지별 추가 스크립트-->
     <th:block layout:fragment="js"></th:block>
 

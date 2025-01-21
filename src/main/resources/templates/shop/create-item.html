@@ -4,6 +4,10 @@
       layout:decorate="~{layout/base}">
 <head>
     <title>상품 아이템 등록</title>
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/test.css}">
+</th:block>
 </head>
 <body>
 
@@ -13,11 +17,15 @@
         <label for="item_id">아이템(과일) : </label>
         <input type="text" id="item_id" name="item" required>
         <button type="submit">아이템 등록</button>
+        <span id="spaceError" class="error">* 공백은 사용할 수 없습니다.</span>
+        <span id="specialCharError" class="error">* 특수문자는 사용할 수 없습니다.</span>
+        <span id="startWithNumber" class="error">* 숫자는 먼저 사용할 수 없습니다.</span>
     </form>
 </main>
 
 <th:block layout:fragment="js">
     <script th:src="@{/js/items.js}"></script>
+    <script th:src="@{/js/test.js}"></script>
 </th:block>
 </body>
 </html>
