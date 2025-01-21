@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
+<html lang="en"
+      xmlns:th="http://www.w3.org/1999/xhtml"
       xmlns:layout="http:/www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/base}">
 <head>
     <title>목록보기</title>
+    <th:block layout:fragment="css">
+        <link rel="stylesheet" th:href="@{/css/list.css}">
+    </th:block>
 </head>
 <body>
 <!-- 메인 컨텐츠 -->
@@ -15,12 +19,24 @@
             <th>상품명</th>
         </tr>
         <!-- 반복구간 시작 -->
-        <tr th:each="item: ${items}">
+        <tr th:each="item: ${pageDto.items}">
             <td th:text="${item.id}"></td>
             <td><a th:href="@{/items/{id}(id=${item.id})}" th:text="${item.item}"></a></td>
         </tr>
         <!-- 반복구간 끝 -->
     </table>
+
+    <div>
+        <ul class="paging">
+            <!--<li>이전으로</li>-->
+            <!--페이지 수는 늘어남-->
+            <li th:each="pageNum : ${#numbers.sequence(1, pageDto.totalPages)}">
+                <a th:href="@{/items(page=${pageNum}, limit=${pageDto.limit})}" th:text="${pageNum}"></a>
+            </li>
+            <!--<li>다음으로</li>-->
+        </ul>
+    </div>
+
 </main>
 </body>
 </html>

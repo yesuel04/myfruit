@@ -12,6 +12,8 @@
       <li>id: <span th:text="${item.id}"></span></li>
       <li>name: <span th:text="${item.item}"></span></li>
     </ul>
+    <a th:href="@{/items/{id}/edit(id=${item.id})}">수정</a>
+    <a th:href="@{/items/{id}/remove(id=${item.id})}">삭제</a>
   </main>
 </body>
 </html>
